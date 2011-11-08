@@ -21,11 +21,11 @@ import openadk.library.Zone;
 import openadk.library.school.SchoolDTD;
 import sbpdemo.publisher.iterator.XMLFileEventIterator;
 import sbpdemo.publisher.iterator.XMLFileResponseIterator;
-import systemic.sif.sbpframework.publisher.SBPBasePublisher;
+import systemic.sif.sbpframework.publisher.NoneSBPBasePublisher;
 import systemic.sif.sifcommon.publisher.SIFEventIterator;
 import systemic.sif.sifcommon.publisher.SIFResponseIterator;
 
-public class TimeTableSubjectPublisher extends SBPBasePublisher
+public class TimeTableSubjectPublisher extends NoneSBPBasePublisher
 {
 	public TimeTableSubjectPublisher(String publisherID)
 	{
