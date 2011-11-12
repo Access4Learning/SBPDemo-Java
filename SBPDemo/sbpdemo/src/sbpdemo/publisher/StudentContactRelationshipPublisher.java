@@ -14,13 +14,17 @@
 */
 package sbpdemo.publisher;
 
+import java.util.List;
+
 import openadk.library.ADKException;
 import openadk.library.Query;
+import openadk.library.SIFDataObject;
 import openadk.library.SIFException;
 import openadk.library.Zone;
 import openadk.library.student.StudentDTD;
 import sbpdemo.publisher.iterator.SchoolInfoEventIterator;
 import sbpdemo.publisher.iterator.SchoolInfoResponseIterator;
+import systemic.sif.sbpframework.persist.model.SIFObjectKey;
 import systemic.sif.sbpframework.publisher.SBPBasePublisher;
 import systemic.sif.sifcommon.publisher.SIFEventIterator;
 import systemic.sif.sifcommon.publisher.SIFResponseIterator;
@@ -42,10 +46,22 @@ public class StudentContactRelationshipPublisher extends SBPBasePublisher
     }
 	
 	@Override
-    public SIFResponseIterator getRequestedSIFObjects(Query query, Zone zone) throws ADKException, SIFException
+    public SIFResponseIterator getAllSIFObjects(Query query, Zone zone) throws ADKException, SIFException
     {
-		logger.debug("getRequestedSIFObjects called for publisher: "+getId());
+		logger.debug("getAllSIFObjects called for publisher: "+getId());
 		return new SchoolInfoResponseIterator();
+    }
+
+	@Override
+    public SIFDataObject getSIFObjectByPrimaryKey(List<SIFObjectKey> keys, Query query, Zone zone) throws ADKException, SIFException
+    {
+		logger.debug("getSIFObjectByPrimaryKey called for publisher: "+getId()+" with key values: "+keys);
+		List<SIFDataObject> sifObjs = getObjectsFromFile();
+		if ((sifObjs != null) && (sifObjs.size() > 0))
+		{
+			return sifObjs.get(0);
+		}
+	    return null;
     }
 
 	@Override
