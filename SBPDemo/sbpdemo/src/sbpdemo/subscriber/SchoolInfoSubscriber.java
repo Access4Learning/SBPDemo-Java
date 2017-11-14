@@ -22,23 +22,16 @@ import openadk.library.Zone;
 import openadk.library.school.SchoolDTD;
 import sbpdemo.utils.DemoHelper;
 import systemic.sif.sbpframework.persist.model.SIFObjectKey;
-import systemic.sif.sbpframework.subscriber.SBPBaseSubscriber;
 import systemic.sif.sifcommon.mapping.MappingInfo;
 import systemic.sif.sifcommon.model.SIFEvent;
 
-public class SchoolInfoSubscriber extends SBPBaseSubscriber 
+public class SchoolInfoSubscriber extends BaseSBPDemoSubscriber 
 {
 	public SchoolInfoSubscriber(String subscriberID)
 	{
 		super(subscriberID, SchoolDTD.SCHOOLINFO);
 	}
 	  
-	@Override
-    public void finalise()
-    {
-	    logger.debug("...in finalise for "+getId() );
-    }
-	 
 	@Override
     public void processEvent(SIFEvent sifEvent, Zone zone, MappingInfo mappingInfo, String consumerID) throws ADKException
     {

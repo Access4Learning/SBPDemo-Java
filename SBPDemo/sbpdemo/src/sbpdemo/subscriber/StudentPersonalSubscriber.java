@@ -22,11 +22,10 @@ import openadk.library.Zone;
 import openadk.library.student.StudentDTD;
 import sbpdemo.utils.DemoHelper;
 import systemic.sif.sbpframework.persist.model.SIFObjectKey;
-import systemic.sif.sbpframework.subscriber.SBPBaseSubscriber;
 import systemic.sif.sifcommon.mapping.MappingInfo;
 import systemic.sif.sifcommon.model.SIFEvent;
 
-public class StudentPersonalSubscriber extends SBPBaseSubscriber 
+public class StudentPersonalSubscriber extends BaseSBPDemoSubscriber 
 {
 	public StudentPersonalSubscriber(String subscriberID)
 	{
@@ -39,12 +38,6 @@ public class StudentPersonalSubscriber extends SBPBaseSubscriber
 //		query.addCondition( StudentDTD.STUDENTPERSONAL_REFID, ComparisonOperators.EQ, "7C834EA9EDA12090347F83297E1C290C" );
 //	}	
 	
-	
-	@Override
-    public void finalise()
-    {
-	    logger.debug("...in finalise for "+getId() );
-    }
 	
 	@Override
     public void processEvent(SIFEvent sifEvent, Zone zone, MappingInfo mappingInfo, String consumerID) throws ADKException
@@ -67,5 +60,4 @@ public class StudentPersonalSubscriber extends SBPBaseSubscriber
 	    // TODO Auto-generated method stub
 	    return false;
     }
-
 }

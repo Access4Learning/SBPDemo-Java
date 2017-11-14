@@ -22,11 +22,10 @@ import openadk.library.Zone;
 import openadk.library.student.StudentDTD;
 import sbpdemo.utils.DemoHelper;
 import systemic.sif.sbpframework.persist.model.SIFObjectKey;
-import systemic.sif.sbpframework.subscriber.SBPBaseSubscriber;
 import systemic.sif.sifcommon.mapping.MappingInfo;
 import systemic.sif.sifcommon.model.SIFEvent;
 
-public class StudentContactRelationshipSubscriber extends SBPBaseSubscriber 
+public class StudentContactRelationshipSubscriber extends BaseSBPDemoSubscriber 
 {
 	public StudentContactRelationshipSubscriber(String subscriberID)
 	{
@@ -40,13 +39,6 @@ public class StudentContactRelationshipSubscriber extends SBPBaseSubscriber
 //		query.addCondition( StudentDTD.STUDENTCONTACTRELATIONSHIP_STUDENTPERSONALREFID, ComparisonOperators.EQ, "ABCD4EA9EDA12090347F83297EABCABC" );
 //		query.addCondition( StudentDTD.STUDENTCONTACTRELATIONSHIP_CONTACTSEQUENCE, ComparisonOperators.EQ, "1" );
 //	}	
-	
-	
-	@Override
-    public void finalise()
-    {
-	    logger.debug("...in finalise for "+getId() );
-    }
 	
 	@Override
     public void processEvent(SIFEvent sifEvent, Zone zone, MappingInfo mappingInfo, String consumerID) throws ADKException

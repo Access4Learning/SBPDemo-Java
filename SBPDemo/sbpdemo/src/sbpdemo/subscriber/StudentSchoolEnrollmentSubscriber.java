@@ -22,23 +22,16 @@ import openadk.library.Zone;
 import openadk.library.student.StudentDTD;
 import sbpdemo.utils.DemoHelper;
 import systemic.sif.sbpframework.persist.model.SIFObjectKey;
-import systemic.sif.sbpframework.subscriber.SBPBaseSubscriber;
 import systemic.sif.sifcommon.mapping.MappingInfo;
 import systemic.sif.sifcommon.model.SIFEvent;
 
-public class StudentSchoolEnrollmentSubscriber extends SBPBaseSubscriber 
+public class StudentSchoolEnrollmentSubscriber extends BaseSBPDemoSubscriber 
 {
 	public StudentSchoolEnrollmentSubscriber(String subscriberID)
 	{
 		super(subscriberID, StudentDTD.STUDENTSCHOOLENROLLMENT);
 	}
 	  
-	@Override
-    public void finalise()
-    {
-	    logger.debug("...in finalise for "+getId() );
-    }
-	
 	@Override
     public void processEvent(SIFEvent sifEvent, Zone zone, MappingInfo mappingInfo, String consumerID) throws ADKException
     {
@@ -57,8 +50,13 @@ public class StudentSchoolEnrollmentSubscriber extends SBPBaseSubscriber
     @Override
     public boolean doesObjectExistInTargetSystem(String sifObjectName, List<SIFObjectKey> keyValues, SIFDataObject sifObject)
     {
-	    // TODO Auto-generated method stub
-	    return false;
+        logger.debug(getId()+": Check Dependency for "+sifObjectName+" with key values: "+keyValues);
+        boolean exists = false;
+
+        logger.debug(getId()+": Object ofr Dependency "+sifObjectName+" with key values: "+keyValues+" exists: "+exists);
+
+        
+	    return exists;
     }
 
 }
