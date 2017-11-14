@@ -17,7 +17,7 @@
   <FTPTStatus>01</FTPTStatus>
 </StudentSchoolEnrollment>
 <StudentSchoolEnrollment RefId="BBBBD3E34B359D75101D00AA001A1652">
-  <StudentPersonalRefId></StudentPersonalRefId>
+  <StudentPersonalRefId>BBBB4EA9EDA12090347F83297E1C290D</StudentPersonalRefId>
   <SchoolInfoRefId>D3E34B359D75101A8C3D00AA001A1651</SchoolInfoRefId>
   <MembershipType>01</MembershipType>
   <TimeFrame>C</TimeFrame>
